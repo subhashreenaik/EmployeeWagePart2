@@ -15,28 +15,33 @@ public class EmployeeWagePart {
 		//This method returns daily wage of employee
 		 int computeDailyWage() {
 
-	        int empType = (int) (Math.random() * 10) % 3;
-	        if (empType == FULL_TIME)
-	        {
-	            System.out.println("Employee is working fulltime");
-	            working_hour=8;
-
-	        }else if (empType == PART_TIME)
-	        {
-	            System.out.println("Employee is working parttime");
-	            working_hour=4;
-
-	        }
-	        else
-	        {
-	        	System.out.println("Employee is absent");
-	        }
-	        
-	        int wage = working_hour*WAGE_PER_HOUR;
-	        
-			return wage;
-		}
-		
+			 int empType = (int) (Math.random() * 10) % 3;
+		        switch(empType) {
+		        case FULL_TIME:
+			      {
+				   System.out.println("Employee is workinf fulltime");
+				   working_hour=8;
+				   break;
+			       }
+			       case PART_TIME:
+			       {
+				   System.out.println("Employee is working parttime");
+				   working_hour=4;
+				   break;
+			
+			       }
+			       default:
+			       {
+				   System.out.println("Employee is absent");
+				   working_hour=0;
+				   break;
+			       }
+		        }
+		        
+		        int wage = working_hour*WAGE_PER_HOUR;
+		        
+				return wage;
+			}
 		
 
 	 public static void main(String[] args) {
