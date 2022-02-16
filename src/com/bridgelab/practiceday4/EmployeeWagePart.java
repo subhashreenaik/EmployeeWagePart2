@@ -13,44 +13,46 @@ public class EmployeeWagePart {
 		//Variable declaring
 		static int working_hour=0;
 		static int total_wage=0;
+		static int totalhr=0;
+		static int totalworkingdays=0;
 		
 		//This method returns daily wage of employee
-		 int computeDailyWage() {
+		    int computeDailyWage() {
+			while(totalhr<=100 && totalworkingdays<20) {
+	       	totalworkingdays++;
 
-			 for(int day=1;day<=WORKINGDAY_MONTH;day++) {
-
-			        int empType = (int) (Math.random() * 10) % 3;
-			        switch(empType) {
-			        case FULL_TIME:
-				      {
-					   working_hour=8;
-					   break;
-				       }
-				       case PART_TIME:
-				       {
-					   working_hour=4;
-					   break;
-				
-				       }
-				       default:
-				       {
-					   working_hour=0;
-					   break;
-				       }
-			        }
-			        
-			        int wage = working_hour*WAGE_PER_HOUR;
-			        total_wage +=wage;
-			        
-				}
-					
-					return total_wage;
-				}
+	        int empType = (int) (Math.random() * 10) % 3;
+	        switch(empType) {
+	        case FULL_TIME:
+		      {
+			   working_hour=8;
+			   break;
+		       }
+		       case PART_TIME:
+		       {
+			   working_hour=4;
+			   break;
+		
+		       }
+		       default:
+		       {
+			   working_hour=0;
+			   break;
+		       }
+	        }
+	        
+	        totalhr +=working_hour;
+		      
+	}
+			total_wage= totalhr * WAGE_PER_HOUR;
+			
+		    return total_wage;
+	}
 		
 
-	 public static void main(String[] args) {
+	     public static void main(String[] args) {
 		 EmployeeWagePart emp =new EmployeeWagePart();
-		 System.out.println("total empoyee wage for a month is  "+emp.computeDailyWage());
+		 System.out.println("total empoyee wage for a month is  "+ emp.computeDailyWage());
 		 
 	 }
 }
