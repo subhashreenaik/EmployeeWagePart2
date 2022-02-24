@@ -5,20 +5,31 @@ public class EmployeeWagePart {
 	//Declaring constant
 	final static int FULL_TIME=1;
 	final static int PART_TIME=2;
-	final static int WAGE_PER_HOUR=20;
-	final static int WORKINGDAY_MONTH=20;
-	final int FULL_DAY_HOUR=8;
-	final int PART_TIME_HOUR=4;
+	private final  int wage_per_hour;
+	private final String company;
+	private final int no_workingday;
+	private final int MaxhourPerMonth;
+	
+	EmployeeWagePart(String company,int wage_per_hour,int no_workingday,int MaxhourPerMonth ){
 		
-		//Variable declaring
-		static int working_hour=0;
-		static int total_wage=0;
-		static int totalhr=0;
-		static int totalworkingdays=0;
+		this.wage_per_hour=wage_per_hour;
+		this.company = company;
+		this.MaxhourPerMonth=MaxhourPerMonth;
+		this.no_workingday=no_workingday;
+		
+	}
+		
 		
 		//This method returns daily wage of employee
-		    int computeDailyWage() {
-			while(totalhr<=100 && totalworkingdays<20) {
+		  public static  int computeDailyWage(int wage_per_hour,int MaxhourPerMonth,int no_workingday,String company) {
+		    	
+		    	//Variable declaring
+				 int working_hour=0;
+				 int total_wage=0;
+				 int totalhr=0;
+				 int totalworkingdays=0;
+				
+			while(totalhr<=MaxhourPerMonth && totalworkingdays<no_workingday) {
 	       	totalworkingdays++;
 
 	        int empType = (int) (Math.random() * 10) % 3;
@@ -44,15 +55,20 @@ public class EmployeeWagePart {
 	        totalhr +=working_hour;
 		      
 	}
-			total_wage= totalhr * WAGE_PER_HOUR;
+			total_wage= totalhr * wage_per_hour;
 			
 		    return total_wage;
 	}
 		
 
 	     public static void main(String[] args) {
-		 EmployeeWagePart emp =new EmployeeWagePart();
-		 System.out.println("total empoyee wage for a month is  "+ emp.computeDailyWage());
+	    	 
+		EmployeeWagePart dmart =new EmployeeWagePart("DMart",20,20,100);
+		double total_wage = computeDailyWage(dmart.wage_per_hour,dmart.MaxhourPerMonth,dmart.no_workingday,dmart.company);
+		System.out.println("total empoyee wage for a month of DMART is  "+ total_wage);
+		
+		 
+		 
 		 
 	 }
 }
