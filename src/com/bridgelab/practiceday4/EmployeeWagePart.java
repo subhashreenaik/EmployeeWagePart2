@@ -21,7 +21,7 @@ public class EmployeeWagePart {
 		
 		
 		//This method returns daily wage of employee
-		  public static  int computeDailyWage(int wage_per_hour,int MaxhourPerMonth,int no_workingday,String company) {
+		  public int computeDailyWage(int wage_per_hour,int MaxhourPerMonth,int no_workingday,String company) {
 		    	
 		    	//Variable declaring
 				 int working_hour=0;
@@ -64,10 +64,16 @@ public class EmployeeWagePart {
 	     public static void main(String[] args) {
 	    	 
 		EmployeeWagePart dmart =new EmployeeWagePart("DMart",20,20,100);
-		double total_wage = computeDailyWage(dmart.wage_per_hour,dmart.MaxhourPerMonth,dmart.no_workingday,dmart.company);
+		double total_wage = dmart.computeDailyWage(dmart.wage_per_hour,dmart.MaxhourPerMonth,dmart.no_workingday,dmart.company);
 		System.out.println("total empoyee wage for a month of DMART is  "+ total_wage);
 		
-		 
+		EmployeeWagePart v2 =new EmployeeWagePart("v2",20,25,150);
+		double total_wage2 = v2.computeDailyWage(v2.wage_per_hour,v2.MaxhourPerMonth,v2.no_workingday,v2.company);
+		System.out.println("total empoyee wage for a month of V2 is  "+ total_wage2);
+		
+		EmployeeWagePart vmart =new EmployeeWagePart("vmart",20,25,150);
+		double total_wage3 = vmart.computeDailyWage(vmart.wage_per_hour,vmart.MaxhourPerMonth,vmart.no_workingday,vmart.company);
+		System.out.println("total empoyee wage for a month VMART is  "+ total_wage3);
 		 
 		 
 	 }
